@@ -24,8 +24,11 @@ repos:
       - id: check-merge-conflict
       - id: check-yaml
       - id: check-json
+      - id: check-toml
       - id: end-of-file-fixer
       - id: trailing-whitespace
+      - id: detect-private-key
+      - id: mixed-line-ending
 
   # -----------------------------------
   # 🐍 Ruff (lint + fix + import sorting)

@@ -78,7 +78,7 @@ repos:
     hooks:
       - id: run-tests
         name: Run Django Tests before push
-        entry: make run-tests
+        entry: bash -c "cd server && python manage.py test --keepdb --parallel"
         language: system
         pass_filenames: false
         stages: [pre-push]

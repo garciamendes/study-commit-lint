@@ -1,7 +1,72 @@
+exclude: |
+  (?x)^(
+    ^\.venv/.*$
+    | ^env/.*$
+    | ^venv/.*$
+    | ^__pycache__/.*$
+    | ^static/.*$
+    | ^media/.*$
+    | ^migrations/.*$
+    | ^node_modules/.*$
+    | ^build/.*$
+    | ^dist/.*$
+    | ^\.git/.*$
+    | ^frontend/.*$
+  )$
+
 repos:
-- repo: https://github.com/commitizen-tools/commitizen
-  rev: v4.10.0
-  hooks:
-    - id: commitizen
-      stages: [commit-msg]
-      additional_dependencies: []
+  # -------------------------------
+  # 👍 Básicos e essenciais
+  # -------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-json
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # -----------------------------------
+  # 🐍 Ruff (lint + fix + import sorting)
+  # -----------------------------------
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.5
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  # -------------------------
+  # 🖤 Black (formatação)
+  # -------------------------
+  - repo: https://github.com/psf/black
+    rev: 25.11.0
+    hooks:
+      - id: black
+
+  # -------------------------
+  # 🧹 PyUpgrade (melhores práticas modernas)
+  # -------------------------
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.21.2
+    hooks:
+      - id: pyupgrade
+        args: ["--py38-plus"]
+
+  # -------------------------
+  # ❗ Typos (corrige errors de digitação)
+  # -------------------------
+  - repo: https://github.com/crate-ci/typos
+    rev: v1
+    hooks:
+      - id: typos
+
+  # -------------------------
+  # 🧩 Commitizen (validação extra + commit guiado opcional)
+  # -------------------------
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.10.0
+    hooks:
+      - id: commitizen
+        name: "commitizen check"
+        stages: [commit-msg]

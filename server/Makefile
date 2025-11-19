@@ -14,4 +14,4 @@ run-lint-fix:
 	pre-commit run --all-files --hook-stage manual
 
 create-commit: run-lint
-	git add . && cz commit
+	git add . && cz commit && git push

@@ -12,6 +12,7 @@ exclude: |
     | ^dist/.*$
     | ^\.git/.*$
     | ^frontend/.*$
+    | ^front/.*$
   )$
 
 repos:

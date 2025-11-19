@@ -1,0 +1,19 @@
+-r common.txt
+
+pre_commit==4.4.0
+commitizen==4.10.0
+cfgv==3.4.0
+identify==2.6.15
+nodeenv==1.9.1
+virtualenv==20.35.4
+filelock==3.20.0
+distlib==0.4.0
+platformdirs==4.5.0
+PyYAML==6.0.3
+questionary==2.1.1
+prompt_toolkit==3.0.51
+wcwidth==0.2.14
+termcolor==3.2.0
+decli==0.6.3
+tomlkit==0.13.3
+argcomplete==3.6.3

@@ -70,3 +70,15 @@ repos:
       - id: commitizen
         name: "commitizen check"
         stages: [commit-msg]
+
+  # -------------------------
+  # 🧪 Rodar testes antes do push
+  # -------------------------
+  - repo: local
+    hooks:
+      - id: run-tests
+        name: Run Django Tests before push
+        entry: bash -c "make run-tests"
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
